@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>FAQ</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style type="text/css">
+      
+      
+      .faq-item{
+        margin-bottom: 40px;
+        margin-top: 40px;
+      }
+      .faq-body{
+        display: none;
+        margin-top: 30px;
+      }
+      .faq-wrapper{
+        width: 75%;
+        margin: 0 auto;
+      }
+      .faq-inner{
+        padding: 30px;
+        background: rgb(138, 100, 144);
+      }
+      .faq-plus{
+        float: right;
+        font-size: 1.4em;
+        line-height: 1em;
+        cursor: pointer;
+      }
+      hr{
+        background-color: #9b9b9b;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="faq-wrapper">
+          <div class="header">
+            <h1>FAQs</h1>
+          </div>
+          <div class="faq-inner">
+            <div class="faq-item">
+              <h3>
+                Getting Started!!
+                <span class="faq-plus">&plus;</span>
+              </h3>
+              <div class="faq-body">
+                Millions of songs and thousands of podcasts are only a few steps away.
+                Guide to our wepage.
+                Is easily available on desktop, mobile, tablet, TVs, cars, watches and more!
+                Create your account
+                Just choose SIGN UP from the login screen.
+                You can use chose from the available login/signup options. 
+                Start playing!!
+              </div>
+            </div>
+            <hr>
+            <div class="faq-item">
+              <h3>
+                What is our webpage?
+                <span class="faq-plus">&plus;</span>
+              </h3>
+              <div class="faq-body">
+                Heat Beat is a digital music, podcast, and video service that gives you access to millions of songs and other content from creators all over the world.
+                Basic functions such as playing music are totally free              </div>
+            </div>
+            <hr>
+            <div class="faq-item">
+              <h3>
+                Your Library
+                <span class="faq-plus">&plus;</span>
+              </h3>
+              <div class="faq-body">
+                You can save anything you like in Your Library for quick access.
+                From Your Library , find Liked Songs in Playlists.              </div>
+            </div>
+            <hr>
+            <div class="faq-item">
+              <h3>
+                Where is our webplayer available?
+                <span class="faq-plus">&plus;</span>
+              </h3>
+              <div class="faq-body">
+                Check the list below for where you can sign up for Heat Beat.
+              </br><h4>Asia:</h4>India              </div>
+            </div>
+            <hr>
+            <div class="faq-item">
+              <h3>
+                Search
+                <span class="faq-plus">&plus;</span>
+              </h3>
+              <div class="faq-body">
+                Find what you are looking for with Search, including:<br>
+
+                Songs<br>
+                Albums<br>
+                Artists<br>
+                Playlists<br>
+                Podcasts<br>
+                Genres<br>
+                Moods<br>
+                Profiles<br>
+                You can also use search to find Radio and Concerts.              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(".faq-plus").on('click',function(){
+        $(this).parent().parent().find('.faq-body').slideToggle();
+      });
+    </script>
+  </body>
+
+</html>

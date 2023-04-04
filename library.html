@@ -1,0 +1,518 @@
+<html>
+    <head>
+
+
+      <title>Library-playlist </title><link rel="icon" type="image/x-icon" href="2Hcn9iXh.ico">
+        <style>
+body
+{ font-size: 1.3em;
+    background: url('https://cdn.pixabay.com/photo/2016/12/29/18/44/background-1939128_960_720.jpg');
+}
+button{
+
+    width:30px;
+    height:40px;
+    color:blue;
+}
+table
+{
+   border-collapse: collapse;
+   font-size:20px;
+   color:white;
+}
+
+th {
+  border-bottom: 1px solid #ccc;
+}
+
+h1 {
+  text-align: center;
+}
+
+h1, .list {
+font-family: 'Roboto', sans-serif;
+}
+
+tr
+{
+   border-bottom: 1px solid #ccc;
+}
+
+td,th {
+  padding: 20px;
+}
+
+input {
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  padding: 7px 14px;
+  margin-bottom: 10px
+}
+
+input:focus {
+  outline: none;
+  border-color: #aaa;
+}
+
+.sort, button {
+  padding: 8px 30px;
+  border: none;
+  display: inline-block;
+  color: rgb(169, 164, 164);
+  background-color: transparent;
+  text-decoration: none;
+  height: 30px;
+  font-size: 0.9em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.sort:hover {
+  text-decoration: none;
+}
+
+.sort:focus {
+  outline: none;
+}
+
+.sort:after {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  content: "";
+  position: relative;
+  top: -10px;
+  right: -5px;
+}
+
+.sort.asc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #000;
+  content: "";
+  position: relative;
+  top: 4px;
+  right: -5px;
+}
+
+.sort.desc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #000;
+  content: "";
+  position: relative;
+  top: -4px;
+  right: -5px;
+}
+h3,h1{
+    color:white;
+
+}
+
+/* Let's make a class that hides part of the track description, so the table looks tidy, but still allows us to search through the hidden text. In this hypothetical, we'd be using Wordpress to load both excerpts and the text of full posts, but we'd hid the full post text using the "bio-hidden" class. Each "Read more..." would link to a new page with the full track description. */
+
+.description-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Let's push the search field to the far right of the table header. */
+
+/* Make sure album images are 1:1 and tiny. */
+
+.album img {
+  width: 54px;
+  height: 54px;
+}
+
+.time, .track, .temp {
+  text-align: center;}
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px;
+    background: rgb(45, 15, 51);
+}
+
+h1 a {
+    color: rgb(252, 252, 252);
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+nav {
+    position: relative;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    padding: 5px 10px;
+    color: rgb(235, 244, 241);
+    text-decoration: none;
+    font-weight: medium;
+}
+
+nav ul li a.active {
+    color: rgb(26, 205, 140);
+}
+thead{
+    padding:4px;
+}
+img{
+    cursor: pointer;
+}
+
+        </style>
+    </head>
+    <body>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <header class="header">
+            <h1>
+                <a href="music3.html">HEAT BEAT</a>
+            </h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a class="active" href="music3.html" >Home</a>
+
+
+                    </li>
+                    <li>
+                        <a href="abt1.html" data-scrollto="about">About</a>
+                    </li>
+                    <li>
+                        <a href="profile1.html" data-scrollto="faq">Account</a>
+                    </li>
+                    <li>
+                        <a href="premium.html" data-scrollto="contact">premium</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+<h1>Music Library</h1>
+<div id="musiclibrary">
+<input class="search" placeholder="Search" />
+  <table>
+    <thead>
+      <th>
+        <button class="sort" data-sort="album"><h3>Album</h3></button>
+      </th>
+       <th>
+        <button class="sort" data-sort="genre"><h3>Genre</h3></button>
+      </th>
+      <th>
+        <button class="sort" data-sort="track"><h3>Track</h3></button>
+      </th>
+      <th>
+        <button class="sort" data-sort="time"><h3>Time</h3></button>
+      </th>
+      <th>
+        <button><h3>License</h3></button>
+      </th>
+
+   
+      
+
+
+
+
+
+    </thead>
+    <!-- IMPORTANT, class="list" have to be at tbody -->
+    <tbody class="list">
+      <tr>
+        <td class="album"><a onclick="myAudioFunction('a');"><img src="https://c.saavncdn.com/937/Oh-Sita-Hey-Rama-From-Sita-Ramam-Telugu-Telugu-2022-20220509153905-500x500.jpg"></a></td>
+        <td class="genre">Love vibe</td>
+        <td class="track">Hey sita Hey rama</td>
+        <td class="time">3:54</td>
+        <td class="temp">License</td>
+        <td class="description">credit:Sony music</td>
+      </tr>
+      
+
+<!-- /* 
+    <img src="A.jpg">
+</a>
+
+</a>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <tr>
+        <td class="album"><a onclick="myAudioFunction('b');">
+            <img src="https://www.ilyricshub.com/wp-content/uploads/2022/12/jhoome-jo-pathaan.jpg"></a></td>
+        <td class="genre">Bollywood</td>
+        <td class="track">Jhoome jo pathan</td>
+        <td class="time">4:49</td>
+        <td class="temp">Liscence</td>
+        <td class="description">Credit:Yash Raj Films</td>
+      </tr>
+
+<tr>
+        <td class="album"><a onclick="myAudioFunction('c');"><img src="shivashankar.jpg"></a></td>
+         <td class="genre">Bollywood</td>
+        <td class="track">Jay jay shiv shankar</td>
+        <td class="time">4:04</td>
+        <td class="temp">Liscence</td>
+        <td class="description">credit:yt</td>
+      </tr>
+
+
+
+
+      <tr>
+        <td class="album"><a onclick="myAudioFunction('d');"><img src="karthikeya.jpg"></a></td>
+         <td class="genre">south</td>
+        <td class="track">Krishna trance</td>
+        <td class="time">3:04</td>
+        <td class="temp">Liscence</td>
+        <td class="description">credit:yt</td>
+      </tr>
+
+
+
+      <tr>
+        <td class="album"><a onclick="myAudioFunction('c');"><img src="shivashankar.jpg"></a></td>
+         <td class="genre">Bollywood</td>
+        <td class="track">Jay jay shiv shankar</td>
+        <td class="time">4:04</td>
+        <td class="temp">Liscence</td>
+        <td class="description">credit:yt</td>
+      </tr>
+
+
+
+      <tr>
+        <td class="album"><a onclick="myAudioFunction('c');"><img src="shivashankar.jpg"></a></td>
+         <td class="genre">Bollywood</td>
+        <td class="track">Jay jay shiv shankar</td>
+        <td class="time">4:04</td>
+        <td class="temp">Liscence</td>
+        <td class="description">credit:yt</td>
+      </tr>
+
+
+
+      <tr>
+        <td class="album"><a onclick="myAudioFunction('c');"><img src="shivashankar.jpg"></a></td>
+         <td class="genre">Bollywood</td>
+        <td class="track">Jay jay shiv shankar</td>
+        <td class="time">4:04</td>
+        <td class="temp">Liscence</td>
+        <td class="description">credit:yt</td>
+      </tr>
+
+
+
+      <tr>
+        <td class="album"><a onclick="myAudioFunction('c');"><img src="shivashankar.jpg"></a></td>
+         <td class="genre">Bollywood</td>
+        <td class="track">Jay jay shiv shankar</td>
+        <td class="time">4:04</td>
+        <td class="temp">Liscence</td>
+        <td class="description">credit:yt</td>
+      </tr>
+
+
+
+
+      <tr>
+        <td class="album"><a onclick="myAudioFunction('c');"><img src="shivashankar.jpg"></a></td>
+         <td class="genre">Bollywood</td>
+        <td class="track">Jay jay shiv shankar</td>
+        <td class="time">4:04</td>
+        <td class="temp">Liscence</td>
+        <td class="description">credit:yt</td>
+      </tr>
+
+
+
+
+      <tr>
+        <td class="album"><a onclick="myAudioFunction('c');"><img src="shivashankar.jpg"></a></td>
+         <td class="genre">Bollywood</td>
+        <td class="track">Jay jay shiv shankar</td>
+        <td class="time">4:04</td>
+        <td class="temp">Liscence</td>
+        <td class="description">credit:yt</td>
+      </tr>
+
+
+
+      <tr>
+        <td class="album"><a onclick="myAudioFunction('c');"><img src="shivashankar.jpg"></a></td>
+         <td class="genre">Bollywood</td>
+        <td class="track">Jay jay shiv shankar</td>
+        <td class="time">4:04</td>
+        <td class="temp">Liscence</td>
+        <td class="description">credit:yt</td>
+      </tr>
+
+
+
+      <tr>
+        <td class="album"><a onclick="myAudioFunction('c');"><img src="shivashankar.jpg"></a></td>
+         <td class="genre">Bollywood</td>
+        <td class="track">Jay jay shiv shankar</td>
+        <td class="time">4:04</td>
+        <td class="temp">Liscence</td>
+        <td class="description">credit:yt</td>
+      </tr>
+
+
+
+
+      <tr>
+        <td class="album"><a onclick="myAudioFunction('c');"><img src="shivashankar.jpg"></a></td>
+         <td class="genre">Bollywood</td>
+        <td class="track">Jay jay shiv shankar</td>
+        <td class="time">4:04</td>
+        <td class="temp">Liscence</td>
+        <td class="description">credit:yt</td>
+      </tr>
+
+      <tr>
+        <td class="album"><a onclick="myAudioFunction('c');"><img src="shivashankar.jpg"></a></td>
+         <td class="genre">Bollywood</td>
+        <td class="track">Jay jay shiv shankar</td>
+        <td class="time">4:04</td>
+        <td class="temp">Liscence</td>
+        <td class="description">credit:yt</td>
+      </tr>
+
+
+      <tr>
+        <td class="album"><a onclick="myAudioFunction('c');"><img src="shivashankar.jpg"></a></td>
+         <td class="genre">Bollywood</td>
+        <td class="track">Jay jay shiv shankar</td>
+        <td class="time">4:04</td>
+        <td class="temp">Liscence</td>
+        <td class="description">credit:yt</td>
+      </tr>
+
+
+      <tr>
+        <td class="album"><a onclick="myAudioFunction('c');"><img src="shivashankar.jpg"></a></td>
+         <td class="genre">Bollywood</td>
+        <td class="track">Jay jay shiv shankar</td>
+        <td class="time">4:04</td>
+        <td class="temp">Liscence</td>
+        <td class="description">credit:yt</td>
+      </tr>
+
+
+      <tr>
+        <td class="album"><a onclick="myAudioFunction('c');"><img src="shivashankar.jpg"></a></td>
+         <td class="genre">Bollywood</td>
+        <td class="track">Jay jay shiv shankar</td>
+        <td class="time">4:04</td>
+        <td class="temp">Liscence</td>
+        <td class="description">credit:yt</td>
+      </tr>
+     
+    </tbody>
+  </table>
+
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
+<script>
+    var options = {
+  valueNames: [ 'genre','album', 'track', 'time']
+};
+
+var musiclibraryList = new List('musiclibrary', options);
+</script>
+
+
+<script>
+    var aAudio = new Audio('heysita.mp3');
+    var bAudio = new Audio('Jhoome Jo Pathaan(PagalWorld.com.se).mp3');
+    var cAudio = new Audio('Jai Jai Shivshankar - War 128 Kbps.mp3');
+    var dAudio = new Audio('Krishna-Trance-(Karthikeya-2)(PagalWorldl).mp3');
+    function myAudioFunction(letter) {
+        if(letter == 'a') {
+            aAudio.play();
+        } else if(letter == 'b') {
+            bAudio.play();
+        }
+        else if(letter=='c'){
+            cAudio.play();
+        }
+        else if(letter=='d'){
+            dAudio.play();
+        }
+    }
+
+
+    var currentPlayer;
+function EvalSound(soundobj) {
+
+ var thissound=document.getElementById(soundobj);
+ if(currentPlayer  && currentPlayer != thissound) {
+      currentPlayer.pause(); 
+ }
+ if (thissound.paused)
+            thissound.play();
+    else
+        thissound.pause();
+        thissound.currentTime = 0;
+         currentPlayer = thissound;
+}
+
+var x = document.getElementById("a"); 
+
+function playAudio() { 
+  x.play(); 
+} 
+
+function pauseAudio() { 
+  x.pause(); 
+} 
+</script>
+    </body>
+</html>
