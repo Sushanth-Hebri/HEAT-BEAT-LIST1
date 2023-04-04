@@ -1,0 +1,165 @@
+<html>
+    <head>
+        <title>
+
+        </title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Domine:wght@500&family=Prompt:wght@600&display=swap');
+            *{
+                margin:0px;
+            }
+            div {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  top:  0;
+  position:relative;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.div2{
+    position: absolute;
+     top: 30%; 
+     left: 90%; 
+     transform: translate(-50%, -120%);
+     color:white;
+     font-size:30px;
+     font-family: 'Domine', serif;
+    
+     height:100px;
+}
+.div1{
+    position: absolute; 
+    color:rgb(57, 233, 148);
+     font-size:30px;
+     justify-items: right;
+     box-shadow:13px 12px 12px black;
+}
+
+.navlist{
+   transform: translateX(1000px);
+}
+.navlist li{
+    display: inline-block;
+  margin-right: 16px;
+}
+.gradient-text {
+  background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gradient-text2 {
+  background: linear-gradient(to right, rgb(74, 17, 220), rgb(101, 39, 175), rgb(255, 255, 30), green, rgb(74, 196, 8), indigo, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor:pointer;
+  
+}
+.gradient-text2:hover{
+text-shadow:3px 3px 3px  blue;
+background: linear-gradient(to right, rgb(220, 105, 17), rgb(224, 210, 8), rgb(6, 238, 41), rgb(1, 243, 252), rgb(28, 8, 245), indigo, violet);
+-webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor:pointer;
+}
+.square {
+			display: none;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 600px;
+			height: 500px;
+			background-color: #a24242;
+			border: 1px solid #000;
+			padding: 20px;
+			text-align: center;
+			font-size: 24px;
+			font-weight: bold;
+			box-shadow: 15px 15px 15px #5fbaca;
+		}
+.marq{
+
+  height:20px;
+  transform:translateY(-20px);
+}
+#hello-text {
+			color: black;
+		}
+.include{
+  margin-left:40px;
+  margin-top:40px;
+  height:600px;
+  box-shadow:10px 9px 10px red;
+}
+.include:hover{
+  border-radius: 30px;
+  background-color: #a24242;
+}
+      nav{
+        transform:translateY(300px);
+      }  </style>
+    </head>
+    <body onload="showMessage()">
+        <div>
+           <img src="https://www.w3schools.com/howto/img_nature_wide.jpg"> 
+        </div>
+        <div class="div1">
+            <header>
+                <nav>
+                    <ul class="navlist">
+                        <li>About</li>
+                        <li>Courses</li>
+                        <li>Register</li>
+                        <li>Contact</li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+        <div class="div2">
+            <h1 class="gradient-text2">HEAt BEAT</h1>
+            <p class="gradient-text">Ultimate music funda</p>
+          </div>
+<div class="marq">
+  <marquee direction="left"><h3 id="hello-text">Buy premium and enjoy the music of your choice</h3></marquee>
+</div>
+<div class="include">
+  <iframe src="visualizer356.html" height="500px"width="1000px"></iframe>
+  Select the song to dance!
+</div>
+
+          <div id="hello-square" class="square">
+            <p>alert</p>
+            <img src="https://media0.giphy.com/media/tqfS3mgQU28ko/giphy.gif">
+          </div>
+          <script type="text/javascript">
+            function showMessage(){
+              var square = document.getElementById("hello-square");
+              square.style.display = "block";
+              setTimeout(function(){
+                square.style.display = "none";
+              }, 1000); // 5000 milliseconds = 5 seconds
+            }
+
+
+
+            var colors = ["red", "green", "blue", "purple"];
+		var currentColor = 0;
+
+		function changeColor() {
+			var helloText = document.getElementById("hello-text");
+			helloText.style.color = colors[currentColor];
+			currentColor++;
+			if (currentColor == colors.length) {
+				currentColor = 0;
+			}
+		}
+
+		setInterval(changeColor, 2000); 
+          </script>
+    </body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Edit-Account details</title><link rel="icon" type="image/x-icon" href="2Hcn9iXh.ico">  
+        <style>
+/* new addded */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px;
+    background: rgb(45, 15, 51);
+}
+
+h1 a {
+    color: rgb(252, 252, 252);
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+nav {
+    position: relative;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    padding: 0px 40px;
+    color: rgb(235, 244, 241);
+    text-decoration: none;
+    font-weight: medium;
+}
+
+nav ul li a.active {
+    color: rgb(26, 205, 140);
+}
+@media (max-width: 500px) {
+    .footer-bottom p {
+      float: none;
+    }
+  }
+
+.icons a{
+    background: #52527a;
+    color: #272727;
+    padding: 14px;
+    font-size: 20px;
+    border-radius: 100%;
+    display: flex;
+}
+.icons a:hover{
+    color: #ffffff;
+    transition: 0.5s;
+}
+
+.menu a{
+    color: #ffffff;
+    text-transform: capitalize;
+}
+.menu a:hover{
+    color: #52527a;
+    transition: 0.5s;
+}
+.back{
+    background-image: url('https://cdn.pixabay.com/photo/2016/12/29/18/44/background-1939128_960_720.jpg');
+}
+
+h1{
+
+    color:white;
+    padding-right: 5px;
+}
+
+/*user image*/
+.user{
+display:flex;
+justify-content:left ;
+align-items: center;
+background-color: rgb(177, 88, 88);
+height:50%;
+width:20%;
+position: relative;
+padding-left: 0px;
+margin-right: 40px;
+border-radius: 105%;
+}
+img{
+    height:100%;
+    width:110%;
+    margin-right: 40px;
+    border-radius: 99%;
+
+}
+
+
+.user div{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgb(143, 15, 154);
+    color: white;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: visibility 0s, opacity 0.5s linear; 
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+/* Hover on Parent Container */
+.user:hover{
+    cursor: pointer;
+}
+
+.user:hover div{
+    width: 250px;
+    padding: 10px 100px;
+    visibility: visible;
+    opacity: 0.6; 
+}
+
+#sign_out{
+            color:white;
+            font-size: 14px;
+            opacity: 1;
+            cursor: pointer;
+            border-radius: 20px;
+            width:50px;
+           }
+           p{
+            opacity: 1;
+            color:rgb(255, 6, 6);
+           }
+
+
+
+
+
+
+
+           *{padding: 0;margin: 0;font-family: 'Poppins', sans-serif}
+           .container{height:100vh;display:flex;justify-content:center;align-items:center;background-color:#eee}
+           .card{width:350px;height:470px;background-color:#fff;box-shadow:0px 15px 30px rgba(0,0,0,0.1);border-radius:10px;overflow:hidden}
+           .card .info{padding:15px;display:flex;justify-content:space-between;border-bottom:1px solid #e1dede;background-color:#e5e5e5}
+           .card .info button{height:30px;width:80px;border:none;color:#fff;border-radius:4px;background-color:#000;cursor:pointer;text-transform:uppercase}
+           .card .forms{padding:15px}.card .inputs{display:flex;flex-direction:column;margin-bottom:10px}.card .inputs span{font-size:12px}
+           .card .inputs input{height:40px;padding:0px 10px;font-size:17px;box-shadow:none;outline:none}
+           .card .inputs input[type="text"][readonly]{border: 2px solid rgba(0,0,0,0)}
+           #demo{
+/* margin-left: 120px;
+margin-bottom: 90px; */
+/* text-align: center; */
+color:blue;
+font-size: 16px;
+padding-left: 5px;
+           }
+        </style>
+    </head>
+    <body>
+<!-- //navbar -->
+<header class="header">
+    <h1>
+        <a href="music3.html">HEAT BEAT</a>
+    </h1>
+    <nav>
+        <ul>
+            <li>
+                <a class="active" href="music3.html" >Home</a>
+            </li>
+          
+            <li>
+                <button id="sign_out" onclick="myFunction2()"><p>Sign out</p></button> 
+            </li>
+          
+        </ul>
+    </nav>
+</header>
+
+
+
+
+
+
+       
+
+        <div class="container">  <div class="user"><img src="admin.png" ><div>subhash</div></div>
+            <div class="card"> <div class="info"> <span>Edit Profile</span> <button id="savebutton" name="save chnages"  onclick="myFunction()">Save </button> </div> 
+        <div class="forms"> <div class="inputs"> <span>First Name</span> <input type="text"  value="Subhash"> </div> 
+        <div class="inputs"> <span>Last Name</span> <input type="text" placeholder="Patil"> </div> 
+        <div class="inputs"> <span>Email</span> <input type="email"  placeholder="patil12.s23@gmail.com"> </div> 
+        <div class="inputs"> <span>User name</span> <input type="text" placeholder="patil12"> </div> 
+        <div class="inputs"> <span>Country</span> <input type="text"  placeholder="India"> </div>
+     </div> <p id="demo"></p></div>
+    </div>
+    
+
+    <script>
+        function myFunction() {
+          var txt;
+          if (confirm("Confirm to edit profile")) {
+            txt = "Profile edited successfully";
+          } else {
+            txt = "No changes are made";
+          }
+          document.getElementById("demo").innerHTML = txt;
+        }
+        </script>
+<script>
+    function myFunction2() {
+     
+      if (confirm("Confirm to 'Sign out'")) {
+        location.replace("music2new.html");
+      } else {
+       
+      }
+
+    }
+    </script>
+
+
+
+
+    </body>
+</html>
