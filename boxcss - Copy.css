@@ -1,0 +1,65 @@
+.box {
+    /* Set the dimensions of the box */
+    width: 200px;
+    height: 200px;
+  
+    /* Add some perspective to the box */
+    perspective: 800px;
+  }
+  
+  .box-face {
+    /* Set the dimensions of the faces */
+    width: 100%;
+    height: 100%;
+  
+    /* Position the faces */
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    /* Add some styling */
+    background-color: lightblue;
+    border: 1px solid black;
+  }
+  
+  /* Style the front face */
+  .front {
+    /* Rotate the front face back into position */
+    transform: rotateY(0deg);
+  }
+  
+  /* Style the right face */
+  .right {
+    /* Rotate the right face into position */
+    transform: rotateY(90deg);
+    background-color: lightgreen;
+  }
+  
+  /* Style the back face */
+  .back {
+    /* Rotate the back face into position */
+    transform: rotateY(130deg);
+    background-color: lightyellow;
+  }
+  
+  /* Style the left face */
+  .left {
+    /* Rotate the left face into position */
+    transform: rotateY(-90deg);
+    background-color: lightpink;
+  }
+  
+  /* Style the top face */
+  .top {
+    /* Rotate the top face into position */
+    transform: rotateX(70deg);
+    background-color: lightgray;
+  }
+  
+  /* Style the bottom face */
+  .bottom {
+    /* Rotate the bottom face into position */
+    transform: rotateX(-80deg);
+    background-color: white;
+  }
+  
